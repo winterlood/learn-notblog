@@ -1,0 +1,12 @@
+.container {
+}
+
+.container > main {
+  margin: 0 auto;
+  margin-top: var(--header-heigth);
+
+  max-width: var(--page-max-width);
+  padding: var(--page-inner-padding);
+  min-height: calc(100vh - var(--header-heigth));
+  box-sizing: border-box;
+}

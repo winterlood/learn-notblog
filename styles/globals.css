@@ -1,0 +1,16 @@
+html,
+body {
+  margin: 0px;
+  width: 100%;
+}
+
+:root {
+  --page-max-width: 700px;
+  --page-inner-padding: 0rem 1rem;
+  --border-color: rgb(230, 230, 230);
+
+  --header-heigth: 50px;
+
+  --bg-color: white;
+  --fg-color: black;
+}
