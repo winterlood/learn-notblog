@@ -1,5 +1,5 @@
-import PostBody from "@/components/Post/PostBody";
 import PostHeader from "@/components/Post/PostHeader";
+import ArticleRenderer from "@/components/common/ArticleRenderer";
 import { fetchPageBlock } from "@/lib/fetchPageBlock";
 import { fetchPost } from "@/lib/fetchPost";
 import { useRouter } from "next/router";
@@ -46,7 +46,7 @@ export default function PostDetailPage(props) {
   return (
     <>
       <PostHeader {...post} />
-      <PostBody pageBlock={pageBlock} />
+      <ArticleRenderer pageBlock={pageBlock} />
     </>
   );
 }
