@@ -3,7 +3,6 @@ import PostHeader from "@/components/Post/PostHeader";
 import { fetchPageBlock } from "@/lib/fetchPageBlock";
 import { fetchPost } from "@/lib/fetchPost";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 
 export function getStaticPaths() {
   return {
@@ -39,10 +38,6 @@ export default function PostDetailPage(props) {
   const { post, pageBlock } = props;
 
   const router = useRouter();
-
-  useEffect(() => {
-    console.log({ post, pageBlock });
-  }, [props]);
 
   if (router.isFallback) {
     return <>Loading ...</>;
