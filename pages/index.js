@@ -1,12 +1,17 @@
 import Head from "next/head";
+import { fetchPosts } from "@/lib/fetchPosts";
+import PostList from "@/components/Home/PostList";
 
-export function getStaticProps() {
+export async function getStaticProps() {
+  const posts = await fetchPosts();
   return {
-    props: {},
+    props: {
+      posts,
+    },
   };
 }
 
-export default function Home() {
+export default function Home({ posts }) {
   return (
     <>
       <Head>
@@ -16,7 +21,7 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main></main>
+      <PostList posts={posts} />
     </>
   );
 }

@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+}
+
+.container:hover {
+}
+
+.container img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.container .content_info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.container .content_info h4 {
+  margin: 0px;
+}
+
+.container .content_info .created_time {
+  color: var(--fg-opacity-color);
+}
+
+.container .content_info .tag_list_wrapper {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.container .content_info .tag_list_wrapper > span {
+  font-size: 0.8rem;
+}
