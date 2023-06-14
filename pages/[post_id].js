@@ -13,15 +13,25 @@ export function getStaticPaths() {
 
 export async function getStaticProps(ctx) {
   const { post_id } = ctx.params;
-  const post = await fetchPost(post_id);
-  const pageBlock = await fetchPageBlock(post_id);
 
-  return {
-    props: {
-      post,
-      pageBlock,
-    },
-  };
+  const [postReq, pageBlockReq] = await Promise.allSettled([
+    fetchPost(post_id),
+    fetchPageBlock(post_id),
+  ]);
+
+  if (
+    postReq.status === "fulfilled" &&
+    pageBlockReq.status === "fulfilled"
+  ) {
+    return {
+      props: {
+        post: postReq.value,
+        pageBlock: pageBlockReq.value,
+      },
+    };
+  } else {
+    throw new Error("/[post_id] 페이지 getStaticProps 오류 발생");
+  }
 }
 
 export default function PostDetailPage(props) {
