@@ -1,3 +1,4 @@
+import PostBody from "@/components/Post/PostBody";
 import PostHeader from "@/components/Post/PostHeader";
 import { fetchPageBlock } from "@/lib/fetchPageBlock";
 import { fetchPost } from "@/lib/fetchPost";
@@ -50,6 +51,7 @@ export default function PostDetailPage(props) {
   return (
     <>
       <PostHeader {...post} />
+      <PostBody pageBlock={pageBlock} />
     </>
   );
 }
