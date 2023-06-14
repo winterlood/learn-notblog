@@ -1,3 +1,8 @@
+import PostHeader from "@/components/Post/PostHeader";
+import { fetchPost } from "@/lib/fetchPost";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+
 export function getStaticPaths() {
   return {
     paths: [],
@@ -5,15 +10,33 @@ export function getStaticPaths() {
   };
 }
 
-export function getStaticProps(ctx) {
+export async function getStaticProps(ctx) {
   const { post_id } = ctx.params;
+  const post = await fetchPost(post_id);
+
   return {
     props: {
-      post_id,
+      post,
     },
   };
 }
 
 export default function PostDetailPage(props) {
-  return <div>Post Detail Page : {props.post_id}</div>;
+  const { post } = props;
+
+  const router = useRouter();
+
+  useEffect(() => {
+    console.log(post);
+  }, [props]);
+
+  if (router.isFallback) {
+    return <>Loading ...</>;
+  }
+
+  return (
+    <>
+      <PostHeader {...post} />
+    </>
+  );
 }
