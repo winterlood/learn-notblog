@@ -28,6 +28,7 @@ export async function getStaticProps(ctx) {
         post: postReq.value,
         pageBlock: pageBlockReq.value,
       },
+      revalidate: 1,
     };
   } else {
     throw new Error("/[post_id] 페이지 getStaticProps 오류 발생");

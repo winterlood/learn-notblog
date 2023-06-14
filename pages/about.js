@@ -8,6 +8,7 @@ export async function getStaticProps() {
     props: {
       pageBlock,
     },
+    revalidate: 1,
   };
 }
 
