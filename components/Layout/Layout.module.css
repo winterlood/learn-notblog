@@ -3,7 +3,7 @@
 
 .container > main {
   margin: 0 auto;
-  margin-top: var(--header-heigth);
+  margin-top: calc(var(--header-heigth) + 1.5rem);
 
   max-width: var(--page-max-width);
   padding: var(--page-inner-padding);
